@@ -4,8 +4,8 @@
 # tool during the build process.
 
 config = {}
-cmdline = ['/Applications/Marmalade.app/Contents/s3e/makefile_builder/mkb.py', '/Users/kevinislasabud/Documents/JUANPI/JUANPI.mkb', '--deploy-only', '--hub-data', '/Users/kevinislasabud/Documents/JUANPI/project_JUANPI/mkb-quick.txt', '--buildenv=QUICK', '--use-prebuilt']
-mkb = '/Users/kevinislasabud/Documents/JUANPI/JUANPI.mkb'
+cmdline = ['/Applications/Marmalade.app/Contents/s3e/makefile_builder/mkb.py', '/Users/kevinislasabud/Documents/survive/JUANPI.mkb', '--deploy-only', '--hub-data', '/Users/kevinislasabud/Documents/survive/project_JUANPI/mkb-quick.txt', '--buildenv=QUICK', '--use-prebuilt']
+mkb = '/Users/kevinislasabud/Documents/survive/JUANPI.mkb'
 mkf = ['/Applications/Marmalade.app/Contents/s3e/s3e-default.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eAmazonAds/s3eAmazonAds.mkf', '/Applications/Marmalade.app/Contents/modules/iwutil/iwutil.mkf', '/Applications/Marmalade.app/Contents/modules/third_party/libjpeg/libjpeg.mkf', '/Applications/Marmalade.app/Contents/modules/third_party/libpng/libpng.mkf', '/Applications/Marmalade.app/Contents/modules/third_party/zlib/zlib.mkf', '/Applications/Marmalade.app/Contents/platform_libs/android/amazon-ads-android-sdk/amazon-ads-android-sdk.mkf', '/Applications/Marmalade.app/Contents/platform_libs/iphone/amazon-ads-ios-sdk/amazon-ads-ios-sdk.mkf', '/Applications/Marmalade.app/Contents/quick/quick_prebuilt.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eFacebook/s3eFacebook.mkf', '/Applications/Marmalade.app/Contents/platform_libs/android/marmalade-facebook-android-sdk/marmalade-facebook-android-sdk.mkf', '/Applications/Marmalade.app/Contents/platform_libs/android/android-support-v4/android-support-v4.mkf', '/Applications/Marmalade.app/Contents/platform_libs/android/bolts-android/bolts-android.mkf', '/Applications/Marmalade.app/Contents/platform_libs/iphone/marmalade-facebook-iphone-sdk/marmalade-facebook-iphone-sdk.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eWebView/s3eWebView.mkf', '/Applications/Marmalade.app/Contents/modules/iwbilling/iwbilling.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eBBAppWorldBilling/s3eBBAppWorldBilling.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eIOSAppStoreBilling/s3eIOSAppStoreBilling.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eWindowsStoreBilling/s3eWindowsStoreBilling.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eAmazonInAppPurchasing/s3eAmazonInAppPurchasing.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eAndroidMarketBilling/s3eAndroidMarketBilling.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eAndroidGooglePlayBilling/s3eAndroidGooglePlayBilling.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eSamsungInAppPurchasing/s3eSamsungInAppPurchasing.mkf', '/Applications/Marmalade.app/Contents/extensions/s3eFlurry/s3eFlurry.mkf', '/Applications/Marmalade.app/Contents/quick/quick_prebuilt_options.mkf']
 
 class DeployConfig(object):
@@ -17,33 +17,33 @@ assets = {}
 
 assets['Default'] = [
     ('/Applications/Marmalade.app/Contents/extensions/s3eWebView/s3eWebView.js', 's3eWebView.js', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources', '.', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources', '.', 0),
 ]
 
 assets['shared'] = [
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/dbg.lua', 'quicklua/dbg.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/openquick.lua', 'quicklua/openquick.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/QConfig.lua', 'quicklua/QConfig.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/config.lua', 'config.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/fonts', 'fonts', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/dbg.lua', 'quicklua/dbg.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/openquick.lua', 'quicklua/openquick.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/QConfig.lua', 'quicklua/QConfig.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/config.lua', 'config.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/fonts', 'fonts', 0),
 ]
 
 assets['precompiledLua'] = [
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/dbg.lua', 'quicklua/dbg.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/openquick.lua', 'quicklua/openquick.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/QConfig.lua', 'quicklua/QConfig.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/config.lua', 'config.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/fonts', 'fonts', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources-precompiled', '.', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/dbg.lua', 'quicklua/dbg.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/openquick.lua', 'quicklua/openquick.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/QConfig.lua', 'quicklua/QConfig.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/config.lua', 'config.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/fonts', 'fonts', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources-precompiled', '.', 0),
 ]
 
 assets['optimisedLua'] = [
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/dbg.lua', 'quicklua/dbg.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/openquick.lua', 'quicklua/openquick.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/quicklua/QConfig.lua', 'quicklua/QConfig.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/config.lua', 'config.lua', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources/fonts', 'fonts', 0),
-    ('/Users/kevinislasabud/Documents/JUANPI/resources-concatenated', '.', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/dbg.lua', 'quicklua/dbg.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/openquick.lua', 'quicklua/openquick.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/quicklua/QConfig.lua', 'quicklua/QConfig.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/config.lua', 'config.lua', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources/fonts', 'fonts', 0),
+    ('/Users/kevinislasabud/Documents/survive/resources-concatenated', '.', 0),
 ]
 
 ######### DEFAULT CONFIG #############
@@ -56,9 +56,9 @@ class DefaultConfig(DeployConfig):
     caption = 'JUANPI'
     long_caption = 'JUANPI'
     version = [0, 0, 1]
-    config = ['/Users/kevinislasabud/Documents/JUANPI/resources/common.icf', '/Users/kevinislasabud/Documents/JUANPI/resources/app.icf']
-    data_dir = '/Users/kevinislasabud/Documents/JUANPI/resources'
-    mkb_dir = '/Users/kevinislasabud/Documents/JUANPI'
+    config = ['/Users/kevinislasabud/Documents/survive/resources/common.icf', '/Users/kevinislasabud/Documents/survive/resources/app.icf']
+    data_dir = '/Users/kevinislasabud/Documents/survive/resources'
+    mkb_dir = '/Users/kevinislasabud/Documents/survive'
     iphone_link_lib = ['s3eAmazonAds', 's3eFacebook', 's3eWebView', 's3eIOSAppStoreBilling', 'FlurryAnalytics', 's3eFlurry']
     osx_ext_dll = ['/Applications/Marmalade.app/Contents/extensions/s3eWebView/lib/osx/libs3eWebView.dylib', '/Applications/Marmalade.app/Contents/extensions/s3eFlurry/lib/osx/libs3eFlurry.dylib']
     wp81_extra_pri = []

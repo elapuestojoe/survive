@@ -20,6 +20,9 @@ dofile("scenes/cueva.lua")
 --function crearNewGame
 dofile("scenes/newGame.lua")
 
+--function crearInstrucciones
+dofile("scenes/instrucciones.lua")
+
 --function salvarJuego y cosas relacionadas
 
 --funciones: getSegundosOxigeno
@@ -68,6 +71,12 @@ gameScenes.about = function()
 	director:moveToScene(about, {transitionType="fade", transitionTime=0.5})
 end
 
+gameScenes.instrucciones = function()
+
+	local instrucciones = crearInstrucciones()
+	director:setCurrentScene(nil)
+	director:moveToScene(instrucciones, {transitionType="fade", transitionTime=0.5})
+end
 function switchToScene(scene_name)	-- game14
 	gameScenes[scene_name]()
 end
