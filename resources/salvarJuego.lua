@@ -64,3 +64,14 @@ function aumentarSegundosOxigeno(tiempo)
   	file:write(encoded)
   	file:close()
 end
+
+function nuevoJuego()
+
+	local pathS = system:getFilePath("storage", "")
+  	local file = io.open(pathS .. "juego.txt", "w")
+  	local data = {segundosOxigeno=20}
+
+	local encoded = json.encode(data)
+	file:write(encoded)
+	file:close()
+end
