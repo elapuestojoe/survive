@@ -29,6 +29,7 @@ function crearNewGame()
 	function continuar(event)
 		if event.phase=="began" then 
 			
+			nuevoJuego()
 			switchToScene("game")
 		end
 	end
