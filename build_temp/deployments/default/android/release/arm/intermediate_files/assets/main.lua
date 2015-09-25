@@ -12,7 +12,7 @@ dofile("scenes/menuScene.lua")
 dofile("scenes/aboutScene.lua")
 
 --function crearGameScene
-dofile("scenes/gameScene.lua")
+dofile("scenes/juego.lua")
 
 --function crearCueva
 dofile("scenes/cueva.lua")
@@ -91,8 +91,9 @@ function hardKeyPressed(event)
 			
 			local scene = director:getCurrentScene()
 
-			if scene.name == "game" or scene.name=="newGame" then 
+			if scene.name == "game" or scene.name=="newGame" or scene.name=="instrucciones" or scene.name=="about" then 
 
+				
 				switchToScene("menu")
 
 			end
@@ -101,6 +102,6 @@ function hardKeyPressed(event)
 	end
 end
 system:addEventListener("key", hardKeyPressed)
-
+audio:playStream("sprites/cueva/cueva.mp3", true)
 director:setCurrentScene(nil)
 switchToScene("menu")

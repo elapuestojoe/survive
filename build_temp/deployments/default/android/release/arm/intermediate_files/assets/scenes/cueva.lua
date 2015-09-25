@@ -1,7 +1,7 @@
 function crearCueva()
 
 
-	physics:resume()
+	--physics:resume()
 
 	local scene = director:createScene()
 	scene.name = "cueva"
@@ -10,6 +10,7 @@ function crearCueva()
 	scene.cosasCoolObtenidas = 0
 
 	function scene:setUp(event)
+
 
 		--El tiempo que durara la partida
 		local segundosOxigeno = getSegundosOxigeno()
@@ -79,7 +80,7 @@ function crearCueva()
 
 		local alien = director:createSprite({
 			x=director.displayCenterX-160,
-			y=director.displayCenterY,
+			y=350,
 			name = "fondoBotones",
 			xAnchor=0.5,
 			yAnchor=0.5,
@@ -211,16 +212,40 @@ function crearCueva()
 		--Cosas del juego
 
 		--Manejo de tiempo
+
+		local indicadorOxigeno = director:createSprite({
+			zOrder=2,
+			x=director.displayCenterX-550,
+			y=director.displayHeight-90,
+			xAnchor=0.5,
+			yAnchor=0.5,
+			name = "indicadorOxigeno",
+			source = "sprites/cueva/oxigeno.png"
+			})
+
+
 		local segundosOxigenoLabel = director:createLabel({
-			x=director.displayCenterX-500,
-			y=director.displayHeight-70,
+			zOrder=2,
+			x=indicadorOxigeno.x+40,
+			y=indicadorOxigeno.y-10,
 			font = "fonts/Default.fnt",
 			text = "Segundos oxígeno: "..segundosOxigeno
 			})
 
+		local indicadorGemas = director:createSprite({
+			zOrder=2,
+			x=indicadorOxigeno.x,
+			y=indicadorOxigeno.y-60,
+			xAnchor=0.5,
+			yAnchor=0.5,
+			name = "indicadorGemas",
+			source = "sprites/cueva/indicadorGemas.png"
+			})
+
 		scene.gemasLabel = director:createLabel({
-			x=director.displayCenterX-500,
-			y=director.displayHeight-120,
+			zOrder=2,
+			x=indicadorGemas.x+40,
+			y=indicadorGemas.y-10,
 			font = "fonts/Default.fnt",
 			text = "Minerales Obtenidos: "..scene.cosasCoolObtenidas
 			})
@@ -309,7 +334,9 @@ function crearCueva()
 			if segundosOxigeno<0 then
 
 				--Prueba de aumentar segundos oxígeno al ganar
-				aumentarSegundosOxigeno(2)
+				--aumentarSegundosOxigeno(2)
+				aumentarGemas(scene.cosasCoolObtenidas)
+				scene:tearDown()
 				switchToScene("game")
 
 			else
@@ -365,10 +392,14 @@ function crearCueva()
 
 		function bajarVida(vida)
 			if scene.cuadro.w-vida>0 then
+
+				--audio:playSound("sprites/cueva/bajar.wav")
 				scene.cuadro.w = scene.cuadro.w - vida
 			else
 
 				print("perdiste")
+				juegoNuevo()
+				switchToScene("menu")
 			end
 		end
 
@@ -397,10 +428,11 @@ function crearCueva()
 
 				elseif math.abs(enemigo.x-xEspada) < 50 and math.abs(enemigo.y-yEspada) < 50 then 
 
-					if math.random(1,40) == 5 then 
+					if math.random(1,20) == 5 then 
 
 						--Spawnear cosas cool
 
+						--audio:playSound("sprites/cueva/subit.wav")
 						local cosaCool = director:createSprite({
 							x=enemigo.x,
 							y=enemigo.y,
@@ -447,15 +479,25 @@ function crearCueva()
 
 		end
 
+		physics:resume()
 		system:addEventListener("update", updateScene)
 	end
 
 	function scene:tearDown(event)
 
+		--[[
+		physics:removeNode(piso)
+		physics:removeNode(alien)
+		physics:removeNode(muro)
+		physics:removeNode(muroRight)
+		]]--
+
+		--physics:pause()
 		scene.timer:cancel()
 		scene.timerEnemigo:cancel()
-		system:removeEventListener("update", updateScene)
-		system:removeEventListener("update", updateFunction)
+		--system:removeEventListener("update", updateScene)
+		--system:removeEventListener("update", updateFunction)
+		audio:playStream("sprites/menu/menu.mp3", true)
 	end
 
 	scene:addEventListener({"setUp", "tearDown"}, scene)

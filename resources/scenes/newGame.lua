@@ -10,6 +10,16 @@ function crearNewGame()
 		source="sprites/newGame/bg.png"
 		})
 
+	function crearBackground(num)
+		local intro1 =director:createSprite({
+			x=0,
+			y=0,
+			name="background",
+			source="sprites/newGame/bg"..num..".png"
+			})
+	end
+
+	print("NEW")
 	local textoIntro = director:createLabel({
 		x=500,
 		y=500,
@@ -18,19 +28,26 @@ function crearNewGame()
 		})
 
 	local btnContinuar = director:createSprite({
-		x=director.displayCenterX,
-		y=300,
+		x=director.displayCenterX+440,
+		y=40,
 		xAnchor=0.5,
 		yAnchor=0.5,
+		num=0,
+		zOrder=3,
 		name = "btnContinuar",
 		source = "sprites/newGame/continuar.png"
 		})
 
 	function continuar(event)
 		if event.phase=="began" then 
-			
-			nuevoJuego()
-			switchToScene("game")
+			btnContinuar.num=btnContinuar.num+1
+
+			if(btnContinuar.num<3)then 
+				crearBackground(btnContinuar.num)
+			else 
+				nuevoJuego()
+				switchToScene("game")
+			end
 		end
 	end
 

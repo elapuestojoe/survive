@@ -1,1 +1,1 @@
-{"segundosOxigeno":100}
+{"gemas":40,"segundosOxigeno":20,"newGame":0}

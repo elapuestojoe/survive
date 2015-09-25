@@ -69,4 +69,5 @@ deployments
 {
     # App ID for Facebook apps
     android-extra-strings='(facebook_app_id,FACEBOOK_APP_ID)'
+    name = 'Lolost'
 }
