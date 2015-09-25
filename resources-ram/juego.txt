@@ -1,1 +1,1 @@
-{"segundosOxigeno":100}
+{"segundosOxigeno":20,"gemas":0}

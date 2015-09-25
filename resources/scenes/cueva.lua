@@ -211,16 +211,40 @@ function crearCueva()
 		--Cosas del juego
 
 		--Manejo de tiempo
+
+		local indicadorOxigeno = director:createSprite({
+			zOrder=2,
+			x=director.displayCenterX-550,
+			y=director.displayHeight-90,
+			xAnchor=0.5,
+			yAnchor=0.5,
+			name = "indicadorOxigeno",
+			source = "sprites/cueva/oxigeno.png"
+			})
+
+
 		local segundosOxigenoLabel = director:createLabel({
-			x=director.displayCenterX-500,
-			y=director.displayHeight-70,
+			zOrder=2,
+			x=indicadorOxigeno.x+40,
+			y=indicadorOxigeno.y-10,
 			font = "fonts/Default.fnt",
 			text = "Segundos oxígeno: "..segundosOxigeno
 			})
 
+		local indicadorGemas = director:createSprite({
+			zOrder=2,
+			x=indicadorOxigeno.x,
+			y=indicadorOxigeno.y-60,
+			xAnchor=0.5,
+			yAnchor=0.5,
+			name = "indicadorGemas",
+			source = "sprites/cueva/indicadorGemas.png"
+			})
+
 		scene.gemasLabel = director:createLabel({
-			x=director.displayCenterX-500,
-			y=director.displayHeight-120,
+			zOrder=2,
+			x=indicadorGemas.x+40,
+			y=indicadorGemas.y-10,
 			font = "fonts/Default.fnt",
 			text = "Minerales Obtenidos: "..scene.cosasCoolObtenidas
 			})
@@ -310,6 +334,7 @@ function crearCueva()
 
 				--Prueba de aumentar segundos oxígeno al ganar
 				aumentarSegundosOxigeno(2)
+				aumentarGemas(scene.cosasCoolObtenidas)
 				switchToScene("game")
 
 			else

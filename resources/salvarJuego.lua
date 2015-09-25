@@ -12,16 +12,21 @@ local pathS = system:getFilePath("storage", "") --Lugar en sistema
 
 local file = io.open(pathS .. "juego.txt", "r") --Nombre de archivo
 
-if file == nil then
-	print("No existe ningún juego previo")
+function nuevoJuego()
 
 	local pathS = system:getFilePath("storage", "")
   	local file = io.open(pathS .. "juego.txt", "w")
-  	local data = {segundosOxigeno=20}
+  	local data = {segundosOxigeno=20, gemas=0}
 
 	local encoded = json.encode(data)
 	file:write(encoded)
 	file:close()
+end
+
+if file == nil then
+	print("No existe ningún juego previo")
+
+	nuevoJuego()
 else
 	dbg.print("Existe un juego previo, todo bien")
 	local a = file:read("*a")
@@ -40,6 +45,19 @@ function getSegundosOxigeno()
 
   	file:close()
   	return segundosOxigeno
+
+end
+
+function getGemas()
+
+	local pathS = system:getFilePath("storage", "")
+  	local file = io.open(pathS .. "juego.txt", "r")
+  	local archivo = file:read("*a")
+  	local data = json.decode(archivo)
+  	local gemas = data.gemas
+
+  	file:close()
+  	return gemas
 
 end
 
@@ -65,13 +83,14 @@ function aumentarSegundosOxigeno(tiempo)
   	file:close()
 end
 
-function nuevoJuego()
-
+function aumentarGemas(numero)
+	local data = getData()
 	local pathS = system:getFilePath("storage", "")
-  	local file = io.open(pathS .. "juego.txt", "w")
-  	local data = {segundosOxigeno=20}
+	local file = io.open(pathS .. "juego.txt", "w")
+	local archivo = file:read("*a")
 
-	local encoded = json.encode(data)
-	file:write(encoded)
-	file:close()
+  	data.gemas=data.gemas+numero
+  	local encoded = json.encode(data)
+  	file:write(encoded)
+  	file:close()
 end

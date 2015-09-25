@@ -91,7 +91,7 @@ function hardKeyPressed(event)
 			
 			local scene = director:getCurrentScene()
 
-			if scene.name == "game" or scene.name=="newGame" then 
+			if scene.name == "game" or scene.name=="newGame" or scene.name=="instrucciones" or scene.name=="about" then 
 
 				switchToScene("menu")
 

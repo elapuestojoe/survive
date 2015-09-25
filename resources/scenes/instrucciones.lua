@@ -7,7 +7,7 @@ function crearInstrucciones()
 		x = 0,
 		y = 0,
 		name = "background",
-		source = "sprites/about/bg.png"
+		source = "sprites/instrucciones/bg.png"
 		})
   
 	return scene	
