@@ -16,7 +16,7 @@ function nuevoJuego()
 
 	local pathS = system:getFilePath("storage", "")
   	local file = io.open(pathS .. "juego.txt", "w")
-  	local data = {segundosOxigeno=20, gemas=0}
+  	local data = {segundosOxigeno=20, gemas=40, newGame=1}
 
 	local encoded = json.encode(data)
 	file:write(encoded)
@@ -77,7 +77,7 @@ function aumentarSegundosOxigeno(tiempo)
 	local file = io.open(pathS .. "juego.txt", "w")
 	local archivo = file:read("*a")
 
-  	data.segundosOxigeno=data.segundosOxigeno+2
+  	data.segundosOxigeno=data.segundosOxigeno+tiempo
   	local encoded = json.encode(data)
   	file:write(encoded)
   	file:close()
@@ -90,6 +90,18 @@ function aumentarGemas(numero)
 	local archivo = file:read("*a")
 
   	data.gemas=data.gemas+numero
+  	local encoded = json.encode(data)
+  	file:write(encoded)
+  	file:close()
+end
+
+function actualizarNewGame()
+	local data = getData()
+	local pathS = system:getFilePath("storage", "")
+	local file = io.open(pathS .. "juego.txt", "w")
+	local archivo = file:read("*a")
+
+  	data.newGame=0
   	local encoded = json.encode(data)
   	file:write(encoded)
   	file:close()

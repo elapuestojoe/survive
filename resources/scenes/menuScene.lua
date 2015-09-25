@@ -5,6 +5,7 @@ function crearMenu()
 
 	--Animacion de fondo
 	
+	audio:playStream("sprites/menu/menu.mp3", true)
 	
 	local atlasFondo = director:createAtlas({
 		width = 1280,
@@ -27,6 +28,16 @@ function crearMenu()
 		source = animacionFondo
 		})
 	
+	local logo = director:createSprite({
+		x=director.displayCenterX,
+		y=director.displayHeight-80,
+		xAnchor=0.5,
+		yAnchor=0.5,
+		name = "logo",
+		alpha=0.7,
+		source = "sprites/menu/logo.png"
+		})
+
 	local atlasFondoBotones = director:createAtlas({
 		width = 600,
 		height = 405,
@@ -97,9 +108,15 @@ function crearMenu()
 	end
 
 	btnAcercaDe:addEventListener("touch", cambiarEscena)
-	btnPlay:addEventListener("touch", cambiarEscena)
+
+	if getData().newGame==1 then 
+		btnPlay.color = color.gray
+	else 
+		btnPlay:addEventListener("touch", cambiarEscena)
+	end
 	btnNewGame:addEventListener("touch", cambiarEscena)
 	btnInstrucciones:addEventListener("touch", cambiarEscena)
+
   
 	return scene	
 end

@@ -8,7 +8,7 @@ function crearGame()
   local joyasRecurso = 100
   local precioCasa = 50
   local precioComida = 25
-  
+  actualizarNewGame()
 	local background=director:createSprite({
 		x=0,
 		y=0,
